@@ -1,39 +1,37 @@
-const gulp            = require("gulp");
+const gulp          = require("gulp");
+const sass          = require("gulp-sass");
+const sourcemaps    = require("gulp-sourcemaps");
+const autoprefixer  = require("gulp-autoprefixer");
+const plumber       = require("gulp-plumber");
+const colors        = require("ansi-colors");
+const notifier      = require("node-notifier")
+const rename        = require("gulp-rename");
+const wait          = require("gulp-wait");
+const csso          = require("gulp-csso");
 const browserSync     = require("browser-sync").create();
-const sass            = require("gulp-sass"); //sass
-const watch           = require("gulp-watch"); //watch
-const autoprefixer    = require("gulp-autoprefixer"); //auto prefixy
-const sourcemaps      = require("gulp-sourcemaps"); //sourcemapy
-const plumber         = require("gulp-plumber"); //zapobiera przerywaniu taskow
-const rename          = require("gulp-rename"); //zmiana nazwy wynikowych plikow
 const webpack         = require("webpack");
-const colors          = require("ansi-colors");
-const notifier        = require("node-notifier");
-const wait            = require('gulp-wait');
-const csso            = require('gulp-csso');
-
 
 function showError(err) {
     notifier.notify({
-        title: 'Error in sass',
+        title: "Error in sass",
         message: err.messageFormatted
       });
 
-    console.log(colors.red('==============================='));
+    console.log(colors.red("==============================="));
     console.log(colors.red(err.messageFormatted));
-    console.log(colors.red('==============================='));
-    this.emit('end');
+    console.log(colors.red("==============================="));
+    this.emit("end");
 }
 
 
 gulp.task("browseSync", function() {
     browserSync.init({
         server: "./dist",
-        notify: true,
-        host: "192.168.0.24", //IPv4 Address Wirless LAN adapter WiFi from ipconfig
+        notify: false,
+        //host: "192.168.0.24",
         //port: 3000,
-        open: true, //czy otwierac strone
-        //browser: "google chrome" //jaka przeglądarka ma być otwierana - zaleznie od systemu - https://stackoverflow.com/questions/24686585/gulp-browser-sync-open-chrome-only
+        open: true,
+        //browser: "google chrome" //https://stackoverflow.com/questions/24686585/gulp-browser-sync-open-chrome-only
     });
 });
 
@@ -41,23 +39,23 @@ gulp.task("browseSync", function() {
 gulp.task("sass", function() {
     return gulp.src("src/scss/style.scss")
         .pipe(wait(500))
-        .pipe(plumber({ //przeciwdziala bledom w pipe ktore np przerywaja watch
+        .pipe(plumber({
             errorHandler: showError
         }))
-        .pipe(sourcemaps.init()) //inicjalizacja sourcemap przed zabawa na plikach
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: "compressed" //nested, expanded, compact, compressed
         }))
         .pipe(autoprefixer({
-            browsers: ["> 1%"]
-        })) //autoprefixy https://github.com/postcss/autoprefixer#browsers
-        .pipe(csso()) //minimalizacja i optymalizacja styli
-        .pipe(rename({ //zamieniam wynikowy plik na style.min.css
+            browsers: ["> 5%"]
+        })) //autoprefixy https://github.com/browserslist/browserslist#queries
+        .pipe(csso())
+        .pipe(rename({
             suffix: ".min",
             basename: "style"
         }))
-        .pipe(sourcemaps.write(".")) //po modyfikacjach na plikach zapisujemy w pamieci sourcemap
-        .pipe(gulp.dest("dist/css")) //i calosc zapisujemy w dest
+        .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest("dist/css"))
         .pipe(browserSync.stream({match: "**/*.css"}));
 });
 
@@ -79,7 +77,4 @@ gulp.task("watch", function() {
 });
 
 
-gulp.task("default", function() {
-    console.log(colors.yellow("======================= start ======================="));
-    gulp.start(["sass", "es6", "browseSync", "watch"]);
-});
+gulp.task("default", ["sass", "es6", "browseSync", "watch"]);
