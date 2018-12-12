@@ -1,9 +1,9 @@
 @import "_variables.scss";
 
-@import "_global-class.scss";
-@import "_normalize.scss";
-@import "_print.scss";
-@import "_reset.scss";
+@import "partials/_global-class.scss";
+@import "partials/_normalize.scss";
+@import "partials/_print.scss";
+@import "partials/_reset.scss";
 
 @import "components/_header.scss";
 @import "components/_main-hero.scss";

@@ -39,7 +39,7 @@
 	position: relative;
 }
 .section-header-title:after {
-	content:'';
+	content: '';
 	position: absolute;
 	left: 50%;
 	bottom: 0;
@@ -47,4 +47,28 @@
 	width: 33%;
 	height: 4px;
 	background: #6e6e6e;
+}
+
+.btn {
+    min-width: 230px;
+    display: inline-block;
+    padding: 17px 20px;
+    background: $color1;
+    border: 0;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+.btn:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+.btn:hover {
+    background: $color2;
 }
