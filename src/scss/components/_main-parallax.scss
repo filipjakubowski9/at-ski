@@ -1,0 +1,99 @@
+.main-parallax {
+    height: 570px;
+    background-color: $color1;
+    background-image: url(../images/parallax-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-parallax:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient($color1, $color2);
+    opacity: 0.8;
+}
+
+.main-parallax-title {
+    min-width: 640px;
+    width: 100%;
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.main-parallax-table {
+    max-width: 815px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.main-parallax-table table {
+    border-collapse: collapse;
+}
+
+.main-parallax-table td, th {
+    padding: 5px 10px;
+}
+
+.main-parallax-table span, th {
+    font-weight: 300;
+}
+
+.main-parallax-table th {
+    font-size: 22px;
+}
+
+.main-parallax-table p {
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.table-btn {
+    width: 230px;
+    display: block;
+    margin-top: 40px;
+}
+
+.table-img {
+    display: none;
+}
+
+.fullScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background:rgba(255,255,255,0.7);
+}
+.fullScreen .btn {
+    display: block;
+    margin: auto;
+}
+
+.fullScreen img {
+    display: block;
+    margin: 15px auto 5px;
+    width: auto;
+    height: calc(100% - 75px);
+}
