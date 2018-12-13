@@ -6,7 +6,7 @@
     left: 0;
     z-index: 1000;
     transition: 1s all;
-    background-color: #333D69;
+    background-color: $color1;
 }
 
 .page-header.sticky {
@@ -50,6 +50,7 @@
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
+    font-size: 20px;
     color: rgba(#fff, 0.8);
     position: relative;
     transition: 0.5s all;
