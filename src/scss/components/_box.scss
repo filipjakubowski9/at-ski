@@ -54,7 +54,15 @@
 }
 
 .box-content {
-    margin-bottom: 40px;
+    min-height: 100px;
+    margin-bottom: 20px;
     font-size: 20px;
     color: #555;
+}
+
+#ourStores .box-content {
+    height: 140px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    text-align: justify;
 }
