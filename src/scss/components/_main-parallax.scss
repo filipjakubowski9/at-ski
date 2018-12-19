@@ -97,3 +97,44 @@
     width: auto;
     height: calc(100% - 75px);
 }
+
+@media (max-width: 768px) {
+    .main-parallax {
+        height: 100%;
+        max-width: 100vw;
+        flex-direction: column;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #fff;
+    }
+    .main-parallax-title {
+        font-size: 8vw;
+        min-width: 320px;
+        max-width: 100vh;
+    }
+    .main-parallax-table {
+        font-size: 2.8vw;
+        padding: 0;
+    }
+    .main-parallax-table th {
+        font-size: 3vw;
+    }
+    .main-parallax-table p {
+        font-size: 2.2vw;
+    }
+    .main-parallax-table td, th {
+        padding: 1vw 1vw;
+        text-align: center;
+    }
+    .table-btn {
+        font-size: 3vw;
+        margin: 5vh auto 0;
+    }
+    .fullScreen {
+        bottom: 0;
+    }
+    .fullScreen img {
+        width: 100vw;
+        height: 80vh;
+    }
+}

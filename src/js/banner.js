@@ -8,7 +8,7 @@ class Slider {
 		this.$slides.wrapAll('<div class="banner-slides-cnt"></div>');
 
 		const defaultOptions = {
-			pauseTime : 6000,
+			pauseTime : 10000,
 			dots : true,
 			prevText : "Poprzedni slajd",
 			nextText : "Następny slajd"

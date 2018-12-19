@@ -47,6 +47,7 @@
 
 .footer-distributed .item {
 	min-height: 75px;
+	text-align: left;
 }
 
 .footer-distributed .footer-center i {
@@ -83,4 +84,10 @@
 .footer-distributed .footer-center p a {
 	color:  #5383d3;
 	text-decoration: none;;
+}
+
+@media (max-width: 768px) {
+	.footer-distributed .row {
+		flex-direction: column-reverse;
+	}
 }

@@ -62,7 +62,22 @@
 
 #ourStores .box-content {
     height: 140px;
-    margin-bottom: 10px;
     font-size: 22px;
     text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .box-title {
+        font-size: 5vw;
+    }
+    #ourStores .box-content {
+        font-size: 4vw;
+        max-height: 10vh;
+    }
+    #ourStores .row .col-1-2 {
+        margin-bottom: 20px;
+    }
+    #ourStores .btn {
+        margin: 0 auto;
+    }
 }

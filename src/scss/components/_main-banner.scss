@@ -40,6 +40,17 @@
 	content: '\f105';
 }
 
+@media (max-width: 768px) {
+	.banner-prev,
+	.banner-next {
+		max-width: 7vw;
+	}
+	.banner-prev:before,
+	.banner-next:before {
+		font-size: 10vw;
+	}
+}
+
 .banner-slides-cnt {
 	height: 100%;
 	margin: 0 100px;
@@ -96,6 +107,20 @@
 	margin-top: 50px;
 }
 
+@media (max-width: 768px) {
+	.banner-slide-title {
+		margin: 6vh 0 3vh;
+		font-size: 10vw;
+	}
+	.banner-slide-text {
+		min-width: 65vw;
+		font-size: 5vw;
+	}
+	.banner-slide-btn {
+		font-size: 1vw;
+	}
+}
+
 .banner-pagination {
 	position: absolute;
 	bottom: -100px;
@@ -134,4 +159,10 @@
 	left: 0;
 	background: #fff;
 	transform: translate(0, -50%);
+}
+
+@media (max-width: 768px) {
+	.banner-pagination {
+		bottom: -240px;
+	}
 }
